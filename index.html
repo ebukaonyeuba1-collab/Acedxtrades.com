@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aced Xtrades — Join the wait list</title>
+<meta name="description" content="Join the Aced Xtrades wait list. Trade crypto and gift cards on WhatsApp today — get moved onto the platform the moment it's live.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0b0b0c;
+    --panel:#17140f;
+    --panel-line: rgba(244,239,228,0.09);
+    --red:#c81e3a;
+    --red-dim:#7d1526;
+    --yellow:#f2b705;
+    --cream:#f4efe4;
+    --muted:#948d80;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--black);
+    color:var(--cream);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--red);color:var(--cream);}
+  h1,h2,h3{
+    font-family:'Bricolage Grotesque', sans-serif;
+    margin:0;
+    line-height:1.05;
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- suit mark (brand device, drawn in CSS, not an icon font) ---------- */
+  .ace-mark{
+    width:1em; height:1em; display:inline-block; position:relative;
+  }
+  .ace-mark::before{
+    content:"";
+    position:absolute; inset:0;
+    background:currentColor;
+    clip-path: path("M50 6 C58 28 74 42 92 52 C74 62 58 76 50 98 C42 76 26 62 8 52 C26 42 42 28 50 6 Z");
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky; top:0; z-index:20;
+    background:rgba(11,11,12,0.88);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--panel-line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .wordmark{
+    display:flex; align-items:center; gap:9px;
+    font-size:19px; font-weight:600; color:var(--cream); text-decoration:none;
+  }
+  .wordmark .ace-mark{color:var(--yellow); font-size:15px;}
+  .nav-cta{
+    display:inline-flex; align-items:center; gap:8px;
+    background:transparent; color:var(--cream);
+    border:1px solid var(--panel-line);
+    padding:9px 16px; border-radius:var(--radius);
+    font-size:14px; text-decoration:none;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .nav-cta:hover{border-color:var(--yellow); background:rgba(242,183,5,0.06);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:76px 0 88px;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:start;
+    border-bottom:1px solid var(--panel-line);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; top:-140px; right:-140px;
+    width:420px; height:420px;
+    color:var(--red);
+    opacity:0.14;
+    filter:blur(2px);
+  }
+  .hero::before{
+    background:currentColor;
+    clip-path: path("M210 20 C238 100 300 162 380 200 C300 238 238 300 210 380 C182 300 120 238 40 200 C120 162 182 100 210 20 Z");
+  }
+  .hero-copy{padding-top:6px;}
+  .hero h1{
+    font-size:clamp(34px, 4.4vw, 56px);
+    font-weight:800;
+    max-width:12ch;
+  }
+  .hero p.lede{
+    margin:22px 0 0;
+    font-size:18px;
+    color:#d8d2c4;
+    max-width:46ch;
+  }
+  .hero .fine{
+    margin-top:10px; font-size:14px; color:var(--muted); max-width:46ch;
+  }
+
+  form.waitlist{
+    margin-top:32px;
+    display:flex; gap:10px; flex-wrap:wrap;
+  }
+  .field{
+    flex:1 1 240px;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .field label{font-size:13px; color:var(--muted);}
+  .field input{
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    color:var(--cream);
+    padding:13px 14px;
+    border-radius:var(--radius);
+    font-size:15px;
+    font-family:inherit;
+  }
+  .field input:focus{
+    outline:2px solid var(--yellow);
+    outline-offset:1px;
+    border-color:var(--yellow);
+  }
+  .field input::placeholder{color:#615a4c;}
+  button.submit{
+    align-self:flex-end;
+    background:var(--red);
+    color:var(--cream);
+    border:none;
+    padding:14px 22px;
+    border-radius:var(--radius);
+    font-size:15px; font-weight:600;
+    font-family:inherit;
+    cursor:pointer;
+    transition:background .15s ease, transform .1s ease;
+    white-space:nowrap;
+  }
+  button.submit:hover{background:#e02644;}
+  button.submit:active{transform:translateY(1px);}
+  button.submit:focus-visible{outline:2px solid var(--yellow); outline-offset:2px;}
+
+  .queue-line{
+    margin-top:16px; font-size:13px; color:var(--muted);
+    display:flex; align-items:center; gap:8px;
+  }
+  .queue-line .dot{
+    width:6px; height:6px; border-radius:50%; background:var(--yellow);
+    box-shadow:0 0 0 3px rgba(242,183,5,0.18);
+  }
+  .form-msg{margin-top:14px; font-size:14px; display:none;}
+  .form-msg.show{display:block;}
+  .form-msg.ok{color:var(--yellow);}
+
+  /* ---------- the book (ticker panel) ---------- */
+  .book{
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    position:relative;
+  }
+  .book-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    padding:18px 20px 14px;
+    border-bottom:1px solid var(--panel-line);
+  }
+  .book-head h2{font-size:15px; font-weight:600;}
+  .book-head span{font-size:12px; color:var(--muted);}
+  .book-rows{padding:6px 0;}
+  .book-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:13px 20px;
+    border-bottom:1px solid var(--panel-line);
+    font-size:14px;
+  }
+  .book-row:last-child{border-bottom:none;}
+  .book-row .asset{display:flex; flex-direction:column; gap:2px;}
+  .book-row .asset .name{color:var(--cream);}
+  .book-row .asset .sub{font-size:12px; color:var(--muted);}
+  .book-row .rate{text-align:right;}
+  .book-row .rate .num{font-size:14px;}
+  .book-row .rate .move{font-size:12px;}
+  .move.up{color:#6fbf73;}
+  .move.down{color:var(--red);}
+  .book-foot{
+    padding:14px 20px 18px;
+    font-size:12px; color:var(--muted);
+    border-top:1px solid var(--panel-line);
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:76px 0;}
+  section.tight{padding:56px 0;}
+  .section-head{max-width:52ch; margin-bottom:40px;}
+  .section-head h2{font-size:clamp(24px,3vw,32px); font-weight:800;}
+  .section-head p{margin-top:12px; color:#cdc7ba; font-size:16px;}
+
+  .steps{border-top:1px solid var(--panel-line);}
+  .step{
+    display:grid; grid-template-columns:64px 1fr;
+    gap:24px;
+    padding:28px 0;
+    border-bottom:1px solid var(--panel-line);
+  }
+  .step .n{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px; color:var(--yellow);
+    padding-top:3px;
+  }
+  .step h3{font-size:19px; font-weight:600;}
+  .step p{margin:8px 0 0; color:#cdc7ba; font-size:15px; max-width:56ch;}
+
+  .promise{
+    border-top:1px solid var(--panel-line);
+    display:grid; grid-template-columns:1fr 1fr; gap:48px;
+    align-items:center;
+  }
+  .promise .mark-big{font-size:56px; color:var(--red);}
+  .promise h2{font-size:clamp(22px,2.8vw,30px); font-weight:800; max-width:14ch;}
+  .promise p{margin-top:14px; color:#cdc7ba; font-size:16px; max-width:46ch;}
+
+  .creator{
+    border-top:1px solid var(--panel-line);
+    display:flex; gap:40px; align-items:flex-start; flex-wrap:wrap;
+  }
+  .creator blockquote{
+    margin:0; flex:1 1 420px;
+    font-family:'Bricolage Grotesque', sans-serif;
+    font-size:clamp(20px,2.4vw,27px); font-weight:600;
+    line-height:1.3; color:var(--cream);
+  }
+  .creator blockquote::before{content:"“"; color:var(--yellow);}
+  .creator blockquote::after{content:"”"; color:var(--yellow);}
+  .creator .who{
+    flex:0 0 220px;
+    font-size:14px; color:var(--muted);
+  }
+  .creator .who .name{color:var(--cream); font-weight:600; margin-bottom:6px;}
+  .creator .who .handles{margin-top:10px; display:flex; flex-direction:column; gap:4px;}
+  .creator .who .handles a{color:var(--yellow); text-decoration:none;}
+  .creator .who .handles a:hover{text-decoration:underline;}
+
+  footer{
+    border-top:1px solid var(--panel-line);
+    padding:60px 0 40px;
+  }
+  .footer-top{
+    display:grid; grid-template-columns:1fr 1fr; gap:48px;
+    padding-bottom:40px;
+    border-bottom:1px solid var(--panel-line);
+  }
+  .footer-top h2{font-size:clamp(22px,2.8vw,28px); font-weight:800; max-width:14ch;}
+  footer form.waitlist{margin-top:24px;}
+  .whatsapp-cta{
+    display:inline-flex; align-items:center; gap:10px;
+    color:var(--cream); text-decoration:none;
+    border:1px solid var(--panel-line);
+    padding:14px 18px; border-radius:var(--radius);
+    font-size:15px;
+    transition:border-color .15s ease;
+  }
+  .whatsapp-cta:hover{border-color:var(--yellow);}
+  .legal{
+    padding-top:24px;
+    font-size:12.5px; color:var(--muted); line-height:1.7;
+    max-width:70ch;
+  }
+  .fineprint{margin-top:18px; font-size:12px; color:#5c564a;}
+
+  @media (max-width: 860px){
+    .hero{grid-template-columns:1fr; padding:52px 0 60px;}
+    .hero::before{display:none;}
+    .promise{grid-template-columns:1fr;}
+    .footer-top{grid-template-columns:1fr;}
+    button.submit{flex:1 1 100%;}
+    .field{flex:1 1 100%;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  /* single orchestrated hero entrance */
+  .hero-copy, .book{
+    animation: rise 0.7s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .book{animation-delay:0.12s;}
+  @keyframes rise{
+    from{opacity:0; transform:translateY(14px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="wordmark"><span class="ace-mark"></span>Aced Xtrades</a>
+    <a class="nav-cta" href="#join">Join the wait list</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <h1>Your trade doesn't have to wait for the app.</h1>
+      <p class="lede">Join the Aced Xtrades wait list and we'll trade your crypto and gift cards with you directly on WhatsApp — starting today, months before the platform is built.</p>
+      <p class="fine">One list. Every person on it becomes day-one on the platform when it launches — no signing up twice.</p>
+
+      <form class="waitlist" id="waitlist-form">
+        <div class="field">
+          <label for="whatsapp">WhatsApp number</label>
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="+234 800 000 0000" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required>
+        </div>
+        <button class="submit" type="submit">Join the wait list</button>
+      </form>
+      <p class="form-msg" id="form-msg"></p>
+
+      <p class="queue-line"><span class="dot"></span><span id="queue-count">204</span> people already on the list</p>
+    </div>
+
+    <div class="book">
+      <div class="book-head">
+        <h2>The Book</h2>
+        <span>today's desk</span>
+      </div>
+      <div class="book-rows">
+        <div class="book-row">
+          <div class="asset"><span class="name">USDT / NGN</span><span class="sub">crypto</span></div>
+          <div class="rate"><div class="num mono">1,612</div><div class="move up">▲ buy</div></div>
+        </div>
+        <div class="book-row">
+          <div class="asset"><span class="name">BTC / NGN</span><span class="sub">crypto</span></div>
+          <div class="rate"><div class="num mono">market</div><div class="move up">▲ buy</div></div>
+        </div>
+        <div class="book-row">
+          <div class="asset"><span class="name">Apple Gift Card</span><span class="sub">gift card, USD</span></div>
+          <div class="rate"><div class="num mono">92%</div><div class="move down">▼ sell</div></div>
+        </div>
+        <div class="book-row">
+          <div class="asset"><span class="name">Amazon Gift Card</span><span class="sub">gift card, USD</span></div>
+          <div class="rate"><div class="num mono">88%</div><div class="move down">▼ sell</div></div>
+        </div>
+        <div class="book-row">
+          <div class="asset"><span class="name">Steam Gift Card</span><span class="sub">gift card, USD</span></div>
+          <div class="rate"><div class="num mono">85%</div><div class="move down">▼ sell</div></div>
+        </div>
+      </div>
+      <div class="book-foot">Illustrative rates — every trade is quoted and confirmed on WhatsApp before it's final.</div>
+    </div>
+  </section>
+
+  <section class="wrap steps">
+    <div class="section-head">
+      <h2>How the wait list works</h2>
+      <p>No app to download. No account to set up. Just three steps between you and your first trade.</p>
+    </div>
+
+    <div class="step">
+      <div class="n mono">01</div>
+      <div>
+        <h3>Join with your WhatsApp number</h3>
+        <p>Drop your number and email above. That's your spot on the list, held.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="n mono">02</div>
+      <div>
+        <h3>We message you on WhatsApp</h3>
+        <p>You'll hear from the official Aced Xtrades number directly — no bots, no brokers in between.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="n mono">03</div>
+      <div>
+        <h3>Trade now, move to the platform later</h3>
+        <p>Buy and sell crypto and gift cards on WhatsApp while the platform is being built. When it's ready, your account moves with you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap promise">
+    <div class="mark-big"><span class="ace-mark"></span></div>
+    <div>
+      <h2>Wait list isn't a queue. It's early access with a head start.</h2>
+      <p>Most wait lists just hold your place. This one lets you start trading before the product exists — so by the time Aced Xtrades goes live, you're not a new user. You're already a customer.</p>
+    </div>
+  </section>
+
+  <section class="wrap creator tight">
+    <blockquote>I'm building Aced Xtrades in public. Every trade, every decision, every update — on camera, on TikTok and Instagram.</blockquote>
+    <div class="who">
+      <div class="name">Ebuka Onyeuba</div>
+      <div>Founder, Aced Xtrades</div>
+      <div class="handles">
+        <a href="#" id="tiktok-handle">TikTok — add handle</a>
+        <a href="#" id="ig-handle">Instagram — add handle</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <h2>Get on the list</h2>
+        <p class="fine">Takes ten seconds. We message you on WhatsApp within 24 hours.</p>
+        <form class="waitlist" id="waitlist-form-footer">
+          <div class="field">
+            <label for="whatsapp-2">WhatsApp number</label>
+            <input type="tel" id="whatsapp-2" name="whatsapp" placeholder="+234 800 000 0000" required>
+          </div>
+          <div class="field">
+            <label for="email-2">Email</label>
+            <input type="email" id="email-2" name="email" placeholder="you@email.com" required>
+          </div>
+          <button class="submit" type="submit">Join the wait list</button>
+        </form>
+        <p class="form-msg" id="form-msg-footer"></p>
+      </div>
+      <div>
+        <h2>Already on the list?</h2>
+        <p class="fine" style="margin-bottom:18px;">Message the desk directly to start a trade.</p>
+        <a class="whatsapp-cta" href="https://wa.me/2340000000000" id="whatsapp-link">Message on WhatsApp — add number</a>
+      </div>
+    </div>
+
+    <p class="legal">Aced Xtrades is currently a manually operated crypto and gift card exchange service run directly by the founder over WhatsApp, not yet a licensed platform. Rates shown above are illustrative and are confirmed per trade before any funds move.</p>
+    <p class="fineprint">© <span id="year"></span> Aced Xtrades.</p>
+  </div>
+</footer>
+
+<script>
+  // ---- config: fill these in before deploying ----
+  const CONFIG = {
+    whatsappNumber: "2340000000000",   // digits only, country code, no +
+    tiktokHandle: "",                   // e.g. "acedxtrades"
+    instagramHandle: "",                // e.g. "acedxtrades"
+    formEndpoint: ""                    // e.g. a Formspree/Getform endpoint URL to actually collect signups
+  };
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  if (CONFIG.whatsappNumber) {
+    document.getElementById('whatsapp-link').href = `https://wa.me/${CONFIG.whatsappNumber}`;
+    document.getElementById('whatsapp-link').textContent = 'Message on WhatsApp';
+  }
+  if (CONFIG.tiktokHandle) {
+    const el = document.getElementById('tiktok-handle');
+    el.href = `https://tiktok.com/@${CONFIG.tiktokHandle}`;
+    el.textContent = `@${CONFIG.tiktokHandle} on TikTok`;
+  }
+  if (CONFIG.instagramHandle) {
+    const el = document.getElementById('ig-handle');
+    el.href = `https://instagram.com/${CONFIG.instagramHandle}`;
+    el.textContent = `@${CONFIG.instagramHandle} on Instagram`;
+  }
+
+  // illustrative, slowly climbing queue count (purely cosmetic — replace with a real count once the form is wired up)
+  (function () {
+    const el = document.getElementById('queue-count');
+    let base = 204;
+    el.textContent = base;
+    setInterval(() => {
+      base += Math.random() < 0.5 ? 1 : 0;
+      el.textContent = base;
+    }, 9000);
+  })();
+
+  async function handleSubmit(form, msgEl) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      msgEl.classList.remove('show', 'ok');
+
+      if (!CONFIG.formEndpoint) {
+        msgEl.textContent = "You're on the list — we'll message you on WhatsApp soon. (Connect a form endpoint in the code to actually store signups.)";
+        msgEl.classList.add('show', 'ok');
+        form.reset();
+        return;
+      }
+      try {
+        await fetch(CONFIG.formEndpoint, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        });
+        msgEl.textContent = "You're on the list — we'll message you on WhatsApp soon.";
+        msgEl.classList.add('show', 'ok');
+        form.reset();
+      } catch (err) {
+        msgEl.textContent = "Something went wrong. Please try again.";
+        msgEl.classList.add('show');
+      }
+    });
+  }
+
+  handleSubmit(document.getElementById('waitlist-form'), document.getElementById('form-msg'));
+  handleSubmit(document.getElementById('waitlist-form-footer'), document.getElementById('form-msg-footer'));
+</script>
+
+</body>
+</html>
